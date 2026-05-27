@@ -2,6 +2,7 @@ from fastapi import FastAPI
 from pydantic import BaseModel
 from app.printer.simulator import PrinterSimulator
 import json
+import os
 
 app = FastAPI()
 
@@ -82,7 +83,6 @@ def print_text(req: PrintTextRequest):
         }
 
     except Exception as e:
-
         return {
             "status": "error",
             "error": str(e)
@@ -105,7 +105,6 @@ def print_image(req: PrintImageRequest):
         }
 
     except Exception as e:
-
         return {
             "status": "error",
             "error": str(e)
@@ -128,7 +127,6 @@ def print_qr(req: PrintQRRequest):
         }
 
     except Exception as e:
-
         return {
             "status": "error",
             "error": str(e)
@@ -151,7 +149,6 @@ def reprint(req: ReprintRequest):
         }
 
     except Exception as e:
-
         return {
             "status": "error",
             "error": str(e)
@@ -159,7 +156,7 @@ def reprint(req: ReprintRequest):
 
 
 # ----------------------
-# HEALTH (BONUS)
+# HEALTH
 # ----------------------
 
 @app.get("/health")
@@ -171,14 +168,19 @@ def health():
 
 
 # ----------------------
-# LOGS
+# LOGS (SAFE VERSION)
 # ----------------------
 
 @app.get("/logs")
-def get_logs():
+def logs():
+
+    log_path = "app/logs/logs.json"
+
+    if not os.path.exists(log_path):
+        return []
 
     try:
-        with open("app/logs/logs.json", "r") as f:
+        with open(log_path, "r") as f:
             return json.load(f)
 
     except:
