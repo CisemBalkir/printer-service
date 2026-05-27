@@ -1,0 +1,29 @@
+[
+  {
+    "ts": "2026-05-27T16:20:44.596340",
+    "op": "connect",
+    "mode": "usb",
+    "status": "success"
+  },
+  {
+    "ts": "2026-05-27T16:21:14.781975",
+    "op": "print_text",
+    "status": "error",
+    "error": "PAPER_JAM",
+    "text": "\u00e7al\u0131\u015f\u0131yor",
+    "job_id": "19401c89-c05c-4a4a-afd8-e0c6e3b2ae15"
+  },
+  {
+    "ts": "2026-05-27T16:35:00.768700",
+    "op": "connect",
+    "mode": "usb",
+    "status": "success"
+  },
+  {
+    "ts": "2026-05-27T16:35:40.151297",
+    "op": "print_text",
+    "status": "success",
+    "job_id": "7e816b71-206e-4c1f-ad77-6de965fd4f38",
+    "text": "merhaba text ba\u015far\u0131l\u0131"
+  }
+]
